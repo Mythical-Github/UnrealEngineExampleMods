@@ -54,9 +54,5 @@ end
 
 
 RegisterKeyBind(Key.L, function()
-	CheckPlayerController()
-    CheckWorld()
-    ExecuteInGameThread(function()
-        Summon()
-    end)
+    "Lua Example Mod RegisterKeyBind Example Fired"
 end)
