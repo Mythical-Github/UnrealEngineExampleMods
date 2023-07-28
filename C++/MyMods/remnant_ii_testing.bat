@@ -1,4 +1,4 @@
-@echo off
+@echo on
 setlocal
 
 
@@ -29,5 +29,3 @@ if exist "%new_dll%" (
 
 start "" "%game_exe%"
 
-
-exit /b
