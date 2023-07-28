@@ -57,7 +57,7 @@ rem Building solution
 %ms_build_path% %solution% /p:Configuration=Release /p:Platform=x64
 
 
-rem copying newly built files over
+rem Copying newly built files over
 setlocal
 
 
@@ -116,4 +116,4 @@ rem Running game with newly built files
 start "" "%game_exe%"
 
 
-pause
+exit /b
