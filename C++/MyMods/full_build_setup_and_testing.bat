@@ -7,7 +7,7 @@ cd "%~dp0%"
 
 set "latest_path="
 set "latest_version="
-set "output_dir=Output"
+set "output_dir=%cd%\Output"
 set solution=%cd%\Output\MyMods.sln
 set "old_ue4ss_cpp_dll=C:\games\manual_install\Remnant2\Remnant2\Binaries\Win64\Mods\UE4SS-cppsdk.dll"
 set "new_ue4ss_cpp_dll=C:\Users\Mythical\Documents\GitHub\Remnant2ExampleMods\C++\MyMods\Output\ue4ss\Binaries\x64\Release\UE4SS-cppsdk_xinput.dll"
@@ -18,15 +18,10 @@ set "new_example_mod_dll=C:\Users\Mythical\Documents\GitHub\Remnant2ExampleMods\
 set "game_exe=C:\games\manual_install\Remnant2\Remnant2\Binaries\Win64\Remnant2-Win64-Shipping.exe"
 
 
-cmake -S . -B Output
-
-
-
-if not exist "%output_dir%" (
-    mkdir "%output_dir%"
+if not exist "%solution%" (
     cmake -S . -B %output_dir%
 ) else (
-    echo "Output directory already exists. Skipping CMake."
+    echo "Solution already exists. Skipping CMake."
 )
 
 
