@@ -7,6 +7,7 @@ cd "%~dp0%"
 
 set "latest_path="
 set "latest_version="
+set "output_dir=Output"
 set solution=%cd%\Output\MyMods.sln
 set "old_ue4ss_cpp_dll=C:\games\manual_install\Remnant2\Remnant2\Binaries\Win64\Mods\UE4SS-cppsdk.dll"
 set "new_ue4ss_cpp_dll=C:\Users\Mythical\Documents\GitHub\Remnant2ExampleMods\C++\MyMods\Output\ue4ss\Binaries\x64\Release\UE4SS-cppsdk_xinput.dll"
@@ -18,6 +19,15 @@ set "game_exe=C:\games\manual_install\Remnant2\Remnant2\Binaries\Win64\Remnant2-
 
 
 cmake -S . -B Output
+
+
+
+if not exist "%output_dir%" (
+    mkdir "%output_dir%"
+    cmake -S . -B %output_dir%
+) else (
+    echo "Output directory already exists. Skipping CMake."
+)
 
 
 for /f "tokens=*" %%i in ('dir /b /s "%ProgramFiles%\Microsoft Visual Studio\*" "%ProgramFiles(x86)%\Microsoft Visual Studio\*" 2^>nul ^| findstr /i "\\MSBuild\\Current\\Bin\\MSBuild.exe"') do (
