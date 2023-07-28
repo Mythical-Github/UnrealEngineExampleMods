@@ -6,6 +6,7 @@ rem These are the ones you need to manually specify
 set "remnant_2_game_dir=C:\games\manual_install\Remnant2"
 
 
+rem Changes the working dir to the one the script is in
 cd "%~dp0%"
 
 
@@ -22,6 +23,7 @@ set "new_example_mod_dll=C:\Users\Mythical\Documents\GitHub\Remnant2ExampleMods\
 set "game_exe=%remnant_2_game_dir%\Remnant2\Binaries\Win64\Remnant2-Win64-Shipping.exe"
 
 
+rem Only generates the solution if it already hasn't been
 if not exist "%solution%" (
     cmake -S . -B %output_dir%
 ) else (
@@ -29,6 +31,7 @@ if not exist "%solution%" (
 )
 
 
+rem Searching for MSBuild.exe for automated building
 for /f "tokens=*" %%i in ('dir /b /s "%ProgramFiles%\Microsoft Visual Studio\*" "%ProgramFiles(x86)%\Microsoft Visual Studio\*" 2^>nul ^| findstr /i "\\MSBuild\\Current\\Bin\\MSBuild.exe"') do (
     for /r "%%~dpi" %%f in (MSBuild.exe) do (
         set "msbuild_version=%%~nf"
@@ -50,9 +53,11 @@ if defined latest_path (
 )
 
 
+rem Building solution
 %ms_build_path% %solution% /p:Configuration=Release /p:Platform=x64
 
 
+rem copying newly built files over
 setlocal
 
 
@@ -107,6 +112,7 @@ if exist "%new_example_mod_dll%" (
 )
 
 
+rem Running game with newly built files
 start "" "%game_exe%"
 
 
