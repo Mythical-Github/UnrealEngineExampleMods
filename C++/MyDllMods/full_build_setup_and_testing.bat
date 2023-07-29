@@ -20,7 +20,7 @@ set "game_project_name=Remnant2"
 rem This is the name of the game's exe in the Binaries/Win64 directory
 rem Example:
 rem set "%game_project_name%=Remnant2-Win64-Shipping.exe"
-set "%game_project_name%=Remnant2-Win64-Shipping.exe"
+set "game_exe_name=Remnant2-Win64-Shipping.exe"
 
 
 rem Code below this shouldn't need manual changes
@@ -38,9 +38,9 @@ set "game_exe=%game_dir%\%game_project_name%\Binaries\Win64\%game_exe_name%"
 set "old_ue4ss_cpp_dll=%game_dir%\%game_project_name%\Binaries\Win64\Mods\UE4SS-cppsdk.dll"
 set "old_ue4ss_xinput_dll=%game_dir%\%game_project_name%\Binaries\Win64\xinput1_3.dll"
 set "old_example_mod_dll=%game_dir%\%game_project_name%\Binaries\Win64\Mods\ExampleMod\dlls\main.dll"
-set "new_ue4ss_xinput_dll=C++\MyDllMods\Output\ue4ss\Binaries\x64\Release\xinput1_3.dll"
-set "new_ue4ss_cpp_dll=C++\MyDllMods\Output\ue4ss\Binaries\x64\Release\UE4SS-cppsdk_xinput.dll"
-set "new_example_mod_dll=C++\MyDllMods\Output\ExampleMod\Release\ExampleMod.dll"
+set "new_ue4ss_xinput_dll=%cd%\C++\MyDllMods\Output\ue4ss\Binaries\x64\Release\xinput1_3.dll"
+set "new_ue4ss_cpp_dll=%cd%\C++\MyDllMods\Output\ue4ss\Binaries\x64\Release\UE4SS-cppsdk_xinput.dll"
+set "new_example_mod_dll=%cd%\C++\MyDllMods\Output\ExampleMod\Release\ExampleMod.dll"
 
 
 rem Only generates the solution if it already hasn't been
@@ -133,7 +133,10 @@ if exist "%new_example_mod_dll%" (
 
 
 rem Running game with newly built files
-start "" "%game_exe%"
+"%game_exe%"
+
+
+pause
 
 
 exit /b
