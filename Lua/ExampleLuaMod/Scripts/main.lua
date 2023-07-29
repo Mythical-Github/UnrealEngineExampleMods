@@ -54,5 +54,5 @@ end
 
 
 RegisterKeyBind(Key.L, function()
-    "Lua Example Mod RegisterKeyBind Example Fired"
+    print("Lua Example Mod RegisterKeyBind Example Fired")
 end)
