@@ -41,6 +41,13 @@ set "old_example_mod_dll=%game_dir%\%game_project_name%\Binaries\Win64\Mods\Exam
 set "new_ue4ss_xinput_dll=Output\ue4ss\Binaries\x64\Debug\xinput1_3.dll"
 set "new_ue4ss_cpp_dll=Output\ue4ss\Binaries\x64\Debug\UE4SS-cppsdk_xinput.dll"
 set "new_example_mod_dll=Output\ExampleMod\Debug\ExampleMod.dll"
+set "old_ue4ss_cpp_pdb=%game_dir%\%game_project_name%\Binaries\Win64\Mods\UE4SS-cppsdk.pdb"
+set "old_ue4ss_xinput_pdb=%game_dir%\%game_project_name%\Binaries\Win64\xinput1_3.pdb"
+set "old_example_mod_pdb=%game_dir%\%game_project_name%\Binaries\Win64\Mods\ExampleMod\pdbs\main.pdb"
+set "new_ue4ss_xinput_pdb=Output\ue4ss\Binaries\x64\Debug\xinput1_3.pdb"
+set "new_ue4ss_cpp_pdb=Output\ue4ss\Binaries\x64\Debug\UE4SS-cppsdk_xinput.pdb"
+set "new_example_mod_pdb=Output\ExampleMod\Debug\ExampleMod.pdb"
+
 
 
 rem Only generates the solution if it already hasn't been
@@ -129,6 +136,57 @@ if exist "%new_example_mod_dll%" (
         del "%old_example_mod_dll%"
     )
     copy "%new_example_mod_dll%" "%old_example_mod_dll%"
+)
+
+
+for %%A in ("%new_ue4ss_cpp_pdb%" "%old_ue4ss_cpp_pdb%") do (
+    set "folder=%%~dpA"
+    if not exist "!folder!" (
+        echo Creating directory: "!folder!"
+        mkdir "!folder!"
+    )
+)
+
+
+for %%A in ("%new_ue4ss_xinput_pdb%" "%old_ue4ss_xinput_pdb%") do (
+    set "folder=%%~dpA"
+    if not exist "!folder!" (
+        echo Creating directory: "!folder!"
+        mkdir "!folder!"
+    )
+)
+
+
+for %%A in ("%new_example_mod_pdb%" "%old_example_mod_pdb%") do (
+    set "folder=%%~dpA"
+    if not exist "!folder!" (
+        echo Creating directory: "!folder!"
+        mkdir "!folder!"
+    )
+)
+
+
+if exist "%new_ue4ss_cpp_pdb%" (
+    if exist "%old_ue4ss_cpp_pdb%" (
+        del "%old_ue4ss_cpp_pdb%"
+    )
+    copy "%new_ue4ss_cpp_pdb%" "%old_ue4ss_cpp_pdb%"
+)
+
+
+if exist "%new_ue4ss_xinput_pdb%" (
+    if exist "%old_ue4ss_xinput_pdb%" (
+        del "%old_ue4ss_xinput_pdb%"
+    )
+    copy "%new_ue4ss_xinput_pdb%" "%old_ue4ss_xinput_pdb%"
+)
+
+
+if exist "%new_example_mod_pdb%" (
+    if exist "%old_example_mod_pdb%" (
+        del "%old_example_mod_pdb%"
+    )
+    copy "%new_example_mod_pdb%" "%old_example_mod_pdb%"
 )
 
 
