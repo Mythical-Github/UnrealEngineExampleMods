@@ -41,6 +41,9 @@ set "old_example_mod_dll=%game_dir%\%game_project_name%\Binaries\Win64\Mods\Exam
 set "new_ue4ss_xinput_dll=Output\ue4ss\Binaries\x64\Release\xinput1_3.dll"
 set "new_ue4ss_cpp_dll=Output\ue4ss\Binaries\x64\Release\UE4SS-cppsdk_xinput.dll"
 set "new_example_mod_dll=Output\ExampleMod\Release\ExampleMod.dll"
+set "old_ue4ss_cpp_pdb=%game_dir%\%game_project_name%\Binaries\Win64\Mods\UE4SS-cppsdk.pdb"
+set "old_ue4ss_xinput_pdb=%game_dir%\%game_project_name%\Binaries\Win64\xinput1_3.pdb"
+set "old_example_mod_pdb=%game_dir%\%game_project_name%\Binaries\Win64\Mods\ExampleMod\pdbs\main.pdb"
 
 
 rem Only generates the solution if it already hasn't been
@@ -129,6 +132,21 @@ if exist "%new_example_mod_dll%" (
         del "%old_example_mod_dll%"
     )
     copy "%new_example_mod_dll%" "%old_example_mod_dll%"
+)
+
+
+if exist "%old_ue4ss_cpp_pdb%" (
+    del "%old_ue4ss_cpp_pdb%"
+)
+
+
+if exist "%old_ue4ss_xinput_pdb%" (
+    del "%old_ue4ss_xinput_pdb%"
+)
+
+
+if exist "%old_example_mod_pdb%" (
+    del "%old_example_mod_pdb%"
 )
 
 
