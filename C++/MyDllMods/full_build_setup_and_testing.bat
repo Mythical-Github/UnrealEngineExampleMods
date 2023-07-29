@@ -32,15 +32,15 @@ cd "%~dp0%"
 
 set "latest_path="
 set "latest_version="
-set "output_dir=%cd%\Output"
-set "solution=%cd%\Output\MyDllMods.sln"
+set "output_dir=Output"
+set "solution=Output\MyDllMods.sln"
 set "game_exe=%game_dir%\%game_project_name%\Binaries\Win64\%game_exe_name%"
 set "old_ue4ss_cpp_dll=%game_dir%\%game_project_name%\Binaries\Win64\Mods\UE4SS-cppsdk.dll"
 set "old_ue4ss_xinput_dll=%game_dir%\%game_project_name%\Binaries\Win64\xinput1_3.dll"
 set "old_example_mod_dll=%game_dir%\%game_project_name%\Binaries\Win64\Mods\ExampleMod\dlls\main.dll"
-set "new_ue4ss_xinput_dll=%cd%\C++\MyDllMods\Output\ue4ss\Binaries\x64\Release\xinput1_3.dll"
-set "new_ue4ss_cpp_dll=%cd%\C++\MyDllMods\Output\ue4ss\Binaries\x64\Release\UE4SS-cppsdk_xinput.dll"
-set "new_example_mod_dll=%cd%\C++\MyDllMods\Output\ExampleMod\Release\ExampleMod.dll"
+set "new_ue4ss_xinput_dll=Output\ue4ss\Binaries\x64\Release\xinput1_3.dll"
+set "new_ue4ss_cpp_dll=Output\ue4ss\Binaries\x64\Release\UE4SS-cppsdk_xinput.dll"
+set "new_example_mod_dll=Output\ExampleMod\Release\ExampleMod.dll"
 
 
 rem Only generates the solution if it already hasn't been
@@ -134,9 +134,6 @@ if exist "%new_example_mod_dll%" (
 
 rem Running game with newly built files
 "%game_exe%"
-
-
-pause
 
 
 exit /b
