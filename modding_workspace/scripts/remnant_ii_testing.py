@@ -19,7 +19,7 @@ pak_list = (
     r"Paks\LogicMods", "Z_AmongUsPlayers_P", 3, "off",
     r"Paks\LogicMods", "Z_FreeCamera_P",     4, "on",
     r"Paks\LogicMods", "Z_NoBackpack_P",     5, "on",
-    r"Paks\LogicMods", "Z_NoFlashlight_P",   6, "on",
+    r"Paks\LogicMods", "Z_NoFlashlight_P",   6, "off",
     r"Paks\LogicMods", "Z_PlayerWalkKey_P",  7, "off",
     r"Paks\LogicMods", "Z_PSX_Graphics_P",   8, "off",
     r"Paks\LogicMods", "Z_SpeedKey_P",       9, "on"
@@ -83,7 +83,8 @@ while i < len(pak_list):
             shutil.copyfile(old, new)
     else:
         if pak_list[i + 3] == "off":
-            pathlib.Path.unlink(new)            
+            if os.path.isfile(new):
+                pathlib.Path.unlink(new)            
     i += pak_list_width
 
 i = 0
@@ -105,7 +106,8 @@ while i < len(pak_list):
             shutil.copyfile(old, new)
     else:
         if pak_list[i + 3] == "off":
-            pathlib.Path.unlink(new)    
+            if os.path.isfile(new):
+                pathlib.Path.unlink(new)    
     i += pak_list_width
 
 i = 0
@@ -127,7 +129,8 @@ while i < len(pak_list):
             shutil.copyfile(old, new)
     else:
         if pak_list[i + 3] == "off":
-            pathlib.Path.unlink(new)
+            if os.path.isfile(new):
+                pathlib.Path.unlink(new)
     i += pak_list_width
     
 i = 0
