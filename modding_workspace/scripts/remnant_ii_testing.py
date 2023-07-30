@@ -1,8 +1,6 @@
 import sys
-import time
 import shutil
 import pathlib
-import win32gui
 import subprocess
 
 
@@ -25,14 +23,12 @@ new_mod_ucas_2 = pathlib.Path("C:/Users/Mythical/Downloads/Output/Windows/Remnan
 old_mod_ucas_2 = pathlib.Path("C:/games/manual_install/Remnant2/Remnant2/Content/Paks/LogicMods/Z_ExampleMod_P.ucas")
 new_mod_utoc_2 = pathlib.Path("C:/Users/Mythical/Downloads/Output/Windows/Remnant2/Content/Paks/pakchunk3-Windows.utoc")
 old_mod_utoc_2 = pathlib.Path("C:/games/manual_install/Remnant2/Remnant2/Content/Paks/LogicMods/Z_ExampleMod_P.utoc")
-
-
-def find_window_by_title(window_title):
-    hwnd = win32gui.FindWindow(None, window_title)
-    return hwnd
- 
-def move_window(hwnd, left, top, width, height):
-    win32gui.MoveWindow(hwnd, left, top, width, height, True)
+new_mod_pak_3 = pathlib.Path("C:/Users/Mythical/Downloads/Output/Windows/Remnant2/Content/Paks/pakchunk7-Windows.pak")
+old_mod_pak_3 = pathlib.Path("C:/games/manual_install/Remnant2/Remnant2/Content/Paks/LogicMods/Z_SpeedKey_P.pak")
+new_mod_ucas_3 = pathlib.Path("C:/Users/Mythical/Downloads/Output/Windows/Remnant2/Content/Paks/pakchunk7-Windows.ucas")
+old_mod_ucas_3 = pathlib.Path("C:/games/manual_install/Remnant2/Remnant2/Content/Paks/LogicMods/Z_SpeedKey_P.ucas")
+new_mod_utoc_3 = pathlib.Path("C:/Users/Mythical/Downloads/Output/Windows/Remnant2/Content/Paks/pakchunk7-Windows.utoc")
+old_mod_utoc_3 = pathlib.Path("C:/games/manual_install/Remnant2/Remnant2/Content/Paks/LogicMods/Z_SpeedKey_P.utoc")
 
 
 if pathlib.Path.is_file(new_mod_pak):
@@ -88,27 +84,26 @@ if pathlib.Path.is_file(new_mod_utoc_2):
         pathlib.Path.unlink(old_mod_utoc_2)
     shutil.copy(new_mod_utoc_2, old_mod_utoc_2)    
     
+    
+if pathlib.Path.is_file(new_mod_pak_3):
+    if pathlib.Path.is_file(old_mod_pak_3):
+        pathlib.Path.unlink(old_mod_pak_3)
+    shutil.copy(new_mod_pak_3, old_mod_pak_3)
+
+
+if pathlib.Path.is_file(new_mod_ucas_3):
+    if pathlib.Path.is_file(old_mod_ucas_3):
+        pathlib.Path.unlink(old_mod_ucas_3)
+    shutil.copy(new_mod_ucas_3, old_mod_ucas_3)    
+    
+    
+if pathlib.Path.is_file(new_mod_utoc_3):
+    if pathlib.Path.is_file(old_mod_utoc_3):
+        pathlib.Path.unlink(old_mod_utoc_3)
+    shutil.copy(new_mod_utoc_3, old_mod_utoc_3)  
+
    
 subprocess.Popen(game_exe)
 
-
-time.sleep(1) 
-
-
-if __name__ == "__main__":
-    window_title_to_find = "UE4SS Debugging Tools (OpenGL 3)"
-    hwnd = find_window_by_title(window_title_to_find)
-
-    if hwnd != 0:
-        print("Window found. Moving to the secondary screen.")
-        screen_1_width = -1920
-        screen_2_width = 1540
-        screen_2_length = 900
-
-
-        move_window(hwnd, screen_1_width, 0, screen_2_width, screen_2_length)
-    else:
-        print("Window not found.")
-        
 
 sys.exit()
