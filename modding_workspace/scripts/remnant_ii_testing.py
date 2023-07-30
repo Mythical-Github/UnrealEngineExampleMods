@@ -16,12 +16,12 @@ os.system("title Remnant 2 Mod Testing Testing")
 pak_list = (
     r"Paks\LogicMods", "Z_ExampleMod_P",     1, "on",
     r"Paks\LogicMods", "Z_Testing_P",        2, "on",
-    r"Paks\LogicMods", "Z_AmongUsPlayers_P", 3, "on",
+    r"Paks\LogicMods", "Z_AmongUsPlayers_P", 3, "off",
     r"Paks\LogicMods", "Z_FreeCamera_P",     4, "on",
     r"Paks\LogicMods", "Z_NoBackpack_P",     5, "on",
     r"Paks\LogicMods", "Z_NoFlashlight_P",   6, "on",
-    r"Paks\LogicMods", "Z_PlayerWalkKey_P",  7, "on",
-    r"Paks\LogicMods", "Z_PSX_Graphics_P",   8, "on",
+    r"Paks\LogicMods", "Z_PlayerWalkKey_P",  7, "off",
+    r"Paks\LogicMods", "Z_PSX_Graphics_P",   8, "off",
     r"Paks\LogicMods", "Z_SpeedKey_P",       9, "on"
 )
 pak_list_width =  4
