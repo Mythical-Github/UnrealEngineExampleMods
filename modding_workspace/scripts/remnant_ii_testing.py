@@ -10,15 +10,15 @@ import subprocess
 
 
 
-os.system("title Remnant 2 Mod Testing Testing")
+os.system("title Remnant 2 Mod Testing")
 
 
 pak_list = (
-    r"Paks\LogicMods", "Z_ExampleMod_P",     1, "on",
+    r"Paks\LogicMods", "Z_ExampleMod_P",     1, "off",
     r"Paks\LogicMods", "Z_Testing_P",        2, "on",
     r"Paks\LogicMods", "Z_AmongUsPlayers_P", 3, "off",
-    r"Paks\LogicMods", "Z_FreeCamera_P",     4, "on",
-    r"Paks\LogicMods", "Z_NoBackpack_P",     5, "on",
+    r"Paks\LogicMods", "Z_FreeCamera_P",     4, "off",
+    r"Paks\LogicMods", "Z_NoBackpack_P",     5, "off",
     r"Paks\LogicMods", "Z_NoFlashlight_P",   6, "off",
     r"Paks\LogicMods", "Z_PlayerWalkKey_P",  7, "off",
     r"Paks\LogicMods", "Z_PSX_Graphics_P",   8, "off",
@@ -38,8 +38,8 @@ screen_2_width =  1235
 screen_2_length = 800
 old_prefix =      r"C:\Users\Mythical\Downloads\Output\Windows\Remnant2\Content\Paks\pakchunk"
 old_suffix =      r"-Windows"
-new_prefix =      r"C:\games\manual_install\Remnant2\Remnant2\Content"
-game_exe =        r"C:\games\manual_install\Remnant2\Remnant2\Binaries\Win64\Remnant2-Win64-Shipping.exe"
+new_prefix =      r"C:\Program Files (x86)\Steam\steamapps\common\Remnant2\Remnant2\Content"
+game_exe =        r"C:\Program Files (x86)\Steam\steamapps\common\Remnant2\Remnant2\Binaries\Win64\Remnant2-Win64-Shipping.exe"
 
 
 def get_hash_of(file_to_hash):
