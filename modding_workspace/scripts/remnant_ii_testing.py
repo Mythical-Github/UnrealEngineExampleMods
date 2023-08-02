@@ -136,7 +136,10 @@ while i < len(pak_list):
 i = 0
 
 
-subprocess.Popen(game_exe)
+# subprocess.Popen(game_exe)
+
+
+os.system("start steam://rungameid/1282100")
 
 
 time.sleep(1)
@@ -156,6 +159,3 @@ move_window(hwnd, screen_1_width, 0, screen_2_width, screen_2_length)
 
 
 sys.exit()
-
-
-#add code to delete any of the off mods
