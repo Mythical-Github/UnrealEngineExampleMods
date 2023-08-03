@@ -8,7 +8,7 @@ rem These are the ones you need to manually specify
 rem This is the main game folder, like "../steamapps/common/Remnant2"
 rem Example:
 rem set "game_dir=C:\games\manual_install\Remnant2"
-set "game_dir=C:\games\manual_install\Remnant2"
+set "game_dir=C:\Program Files (x86)\Steam\steamapps\common\Remnant2"
 
 
 rem This is the game project name, like the latter dir here "../steamapps/common/Remnant2/Remnant2"
@@ -192,6 +192,9 @@ if exist "%new_example_mod_pdb%" (
 
 rem Running game with newly built files
 "%game_exe%"
+
+
+pause
 
 
 exit /b
