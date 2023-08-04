@@ -1,3 +1,6 @@
 
 C++/MyDllMods/Output
 modding_workspace/programs/fmodel
+C++/MyDllMods/ExampleMod/dllmain.cpp
+C++/MyDllMods/ExampleMod/CMakeLists.txt
+C++/MyDllMods/CMakeLists.txt
