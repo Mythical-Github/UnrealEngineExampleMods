@@ -8,46 +8,43 @@ import hashlib
 import win32gui
 import subprocess
 
-
-
 os.system("title Remnant 2 Mod Testing")
-
 
 pak_list = (
     r"Paks\LogicMods", "Z_ExampleMod_P",     1, "off",
-    r"Paks\LogicMods", "Z_Testing_P",        2, "on",
+    r"Paks\LogicMods", "Z_Testing_P",        2, "off",
     r"Paks\LogicMods", "Z_AmongUsPlayers_P", 3, "off",
     r"Paks\LogicMods", "Z_FreeCamera_P",     4, "off",
     r"Paks\LogicMods", "Z_NoBackpack_P",     5, "off",
     r"Paks\LogicMods", "Z_NoFlashlight_P",   6, "off",
     r"Paks\LogicMods", "Z_PlayerWalkKey_P",  7, "off",
     r"Paks\LogicMods", "Z_PSX_Graphics_P",   8, "off",
-    r"Paks\LogicMods", "Z_SpeedKey_P",       9, "on"
+    r"Paks\LogicMods", "Z_SpeedKey_P",       9, "off",
+    r"Paks\LogicMods", "Z_AI_Spawner_P",    10, "on"
 )
 pak_list_width =  4
 
-
+# These are the names of processes you want to close before opening the game
 process_list = (
     r"Fmodel.exe",
     r"Remnant2-Win64-Shipping.exe"
 )
 
-
+# These are the screen position values for the automatic moving of the ue4ss gui window
 screen_1_width =  -1920
 screen_2_width =  1235
 screen_2_length = 800
+
 old_prefix =      r"C:\Users\Mythical\Downloads\Output\Windows\Remnant2\Content\Paks\pakchunk"
 old_suffix =      r"-Windows"
-new_prefix =      r"C:\Program Files (x86)\Steam\steamapps\common\Remnant2\Remnant2\Content"
-game_exe =        r"C:\Program Files (x86)\Steam\steamapps\common\Remnant2\Remnant2\Binaries\Win64\Remnant2-Win64-Shipping.exe"
-
+new_prefix =      r"C:\games\manual_install\Remnant2\Remnant2\Content"
+game_exe =        r"C:\games\manual_install\Remnant2\Remnant2\Binaries\Win64\Remnant2-Win64-Shipping.exe"
 
 def get_hash_of(file_to_hash):
     with open(file_to_hash, "rb") as f:
         f_byte = f.read()
         result = hashlib.sha256(f_byte)
         return result.hexdigest()
-
 
 def is_process_running(process_name):
     for proc in psutil.process_iter():
@@ -58,14 +55,11 @@ def is_process_running(process_name):
             pass
     return False
 
-
 for i in process_list:
     if is_process_running(i):
         os.system("taskkill /f /im " + i)
 
-
 i = 0
-
 
 while i < len(pak_list):
     old_suffix = r"-Windows.pak"
@@ -89,7 +83,6 @@ while i < len(pak_list):
 
 i = 0
 
-
 while i < len(pak_list):
     old_suffix = r"-Windows.utoc"
     old = old_prefix + str(pak_list[i + 2]) + old_suffix
@@ -111,7 +104,6 @@ while i < len(pak_list):
     i += pak_list_width
 
 i = 0
-
 
 while i < len(pak_list):
     old_suffix = r"-Windows.ucas"
@@ -135,15 +127,11 @@ while i < len(pak_list):
     
 i = 0
 
+subprocess.Popen(game_exe)
 
-# subprocess.Popen(game_exe)
-
-
-os.system("start steam://rungameid/1282100")
-
+# os.system("start steam://rungameid/1282100")
 
 time.sleep(1)
-
 
 def find_window_by_title(window_title):
     hwnd = win32gui.FindWindow(None, window_title)
@@ -152,10 +140,8 @@ def find_window_by_title(window_title):
 def move_window(hwnd, left, top, width, height):
     win32gui.MoveWindow(hwnd, left, top, width, height, True)
 
-
 window_title_to_find = "UE4SS Debugging Tools (OpenGL 3)"
 hwnd = find_window_by_title(window_title_to_find)
 move_window(hwnd, screen_1_width, 0, screen_2_width, screen_2_length)
-
 
 sys.exit()
