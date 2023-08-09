@@ -20,7 +20,8 @@ pak_list = (
     r"Paks\LogicMods", "Z_PlayerWalkKey_P",  7, "off",
     r"Paks\LogicMods", "Z_PSX_Graphics_P",   8, "off",
     r"Paks\LogicMods", "Z_SpeedKey_P",       9, "off",
-    r"Paks\LogicMods", "Z_AI_Spawner_P",    10, "on"
+    r"Paks\LogicMods", "Z_AI_Spawner_P",    10, "on",
+    r"Paks\LogicMods", "Z_Wrestler_P",      15, "on"
 )
 pak_list_width =  4
 
